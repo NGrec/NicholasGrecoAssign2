@@ -51,12 +51,17 @@
     
 	<script>
 
+		const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdropper", "bellavita", "shine", "woahclosenow", "sittin", "postwash", "filledup", "angry"];
+		
+
 		const first_load = () => { 
 			// TODO: set the main image to the first image in the array (index 0)
 			// TODO: set the thumbnail images		
 		}
 	
 		const set_main_image = (index) => {
+
+			document.querySelector('main-image').src = "images/" + image_names [image_index] + "Full.png"
 			// TODO: set the main-image src image based on the passed parameter	    
 	
 			// TODO: set the hidden textbox to the current index (if you take this approach)	    
@@ -66,6 +71,18 @@
 		}
 	
 		const set_thumbnails = () => {
+
+			image_names.forEach( (camaro, array_index) => {
+				console.log(array_index + ";" + animal)
+				const new_thumb = document.createElement("img");
+				new_thumb.className = "clickable";
+				new_thumb.addEventListener("click", () => {
+					set_main_image(array_index);
+				})
+
+				document.querySelector("thumbnails").append(new_thumb);
+			});
+
 			// TODO: declare a variable for the thumbnail strip html (optional)
 	
 			// TODO: loop through the global array and build the html
@@ -100,6 +117,7 @@
 		}	
 	
 		window.addEventListener("load", first_load);
+		
 
 	</script>
 	
