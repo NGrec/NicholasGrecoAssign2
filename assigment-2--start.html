@@ -128,19 +128,34 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 		const CamaroEnd = document.querySelector ("#last-btn");
 
-	
+		// im using this function to set the navigation to the last image. Ive set last image to 5 because I have 6 images in the array which starts at 0.
+
 		const set_nav_last = () => {
 
+			// last image in array is 5
+			
 			set_main_image (5);
 			// TODO: navigate to the last image (should work for any size array)
 		}
 
+		// runs camaro end function
+
 		CamaroEnd.addEventListener("click", set_nav_last);
+
+		// next button below
+
+		const CamaroNext = document.querySelector ("#next-btn");
 	
 		const set_nav_next = () => {
+
+			const next_index = (current_index >= image_names.length - 1) ? 0 : current_index + 1;
+
+			set_main_image(next_index);
 			// TODO: move to the next image, unless at the end in which case show the first image
 			
 		}
+
+		CamaroNext.addEventListener("click", set_nav_next);
 	
 		const set_nav_prev = () => {
 			// TODO: move to the previous image, unless at the end in which case show the last image
