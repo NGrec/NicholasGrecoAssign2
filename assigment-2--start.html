@@ -123,10 +123,19 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 		// runs function to go back to first image
 		CamaroStart.addEventListener("click", set_nav_first);
+
+		// go to last image button below
+
+		const CamaroEnd = document.querySelector ("#last-btn");
+
 	
 		const set_nav_last = () => {
+
+			set_main_image (5);
 			// TODO: navigate to the last image (should work for any size array)
 		}
+
+		CamaroEnd.addEventListener("click", set_nav_last);
 	
 		const set_nav_next = () => {
 			// TODO: move to the next image, unless at the end in which case show the first image
