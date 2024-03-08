@@ -111,10 +111,18 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			//		- turn off the indicator (eg opacity:0.75) if it's not
 		} 
 	
+		// first button below
+
+		const CamaroStart = document.querySelector ("#first-btn");
+		
 		const set_nav_first = () => {
 			// TODO: navigate to the first image (this is the easy one since it's always index zero)
 			
+			set_main_image (0);
 		}
+
+		// runs function to go back to first image
+		CamaroStart.addEventListener("click", set_nav_first);
 	
 		const set_nav_last = () => {
 			// TODO: navigate to the last image (should work for any size array)
