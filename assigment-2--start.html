@@ -43,7 +43,7 @@
 	            </td>
 	            <td>
 	                <img src="images/next.png" id="next-btn" />            
-	                <img src="images/last.png" id="prev-btn" />
+	                <img src="images/last.png" id="last-btn" />
 	            </td>
 	        </tr>	    
 	    </table>       
@@ -51,10 +51,15 @@
     
 	<script>
 
-		const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdropper", "bellavita", "shine", "woahclosenow", "sittin", "postwash", "filledup", "angry"];
+		
+const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdropper"];
 		
 
 		const first_load = () => { 
+
+			// 0 is the first image in our array
+			
+			set_main_image (0);
 			// TODO: set the main image to the first image in the array (index 0)
 			// TODO: set the thumbnail images		
 		}
