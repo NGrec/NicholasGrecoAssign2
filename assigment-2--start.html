@@ -60,13 +60,17 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			// 0 is the first image in our array
 			
 			set_main_image (0);
+
+			set_thumbnails ();
 			// TODO: set the main image to the first image in the array (index 0)
 			// TODO: set the thumbnail images		
 		}
 	
 		const set_main_image = (index) => {
 
-			document.querySelector('main-image').src = "images/" + image_names [image_index] + "Full.png"
+			document.querySelector('#main-image').src = "images/" + image_names [index] + "Full.png";
+
+			current_index = index;
 			// TODO: set the main-image src image based on the passed parameter	    
 	
 			// TODO: set the hidden textbox to the current index (if you take this approach)	    
@@ -77,15 +81,19 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 	
 		const set_thumbnails = () => {
 
-			image_names.forEach( (camaro, array_index) => {
-				console.log(array_index + ";" + animal)
-				const new_thumb = document.createElement("img");
+			image_names.forEach( (name, index) => {
+				
+				let new_thumb = document.createElement("img");
+				
+				new_thumb.src = "images/" + name + "Thumb.png";
+				
 				new_thumb.className = "clickable";
+				
 				new_thumb.addEventListener("click", () => {
-					set_main_image(array_index);
+					set_main_image(index);
 				})
 
-				document.querySelector("thumbnails").append(new_thumb);
+				document.querySelector("#thumbnail-area").append(new_thumb);
 			});
 
 			// TODO: declare a variable for the thumbnail strip html (optional)
