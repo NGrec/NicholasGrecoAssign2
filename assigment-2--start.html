@@ -148,6 +148,8 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 	
 		const set_nav_next = () => {
 
+			// in this ternary statement, im saying if the current index at the moment is greater than or equal to the last item in the array, we're going to make it go back to 0 which is the first image in the array. If else, it will add one to the current index.
+
 			const next_index = (current_index >= image_names.length - 1) ? 0 : current_index + 1;
 
 			set_main_image(next_index);
@@ -156,10 +158,23 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 		}
 
 		CamaroNext.addEventListener("click", set_nav_next);
+
+		// previous below
+
+		const CamaroBefore = document.querySelector ("#prev-btn");
+		
 	
 		const set_nav_prev = () => {
+
+			// to go back, if current index is equal to first item in array, you want to go back to the last item.
+
+			const prev_index = (current_index <= 0) ? image_names.length - 1 : current_index -1;
+
+			set_main_image(prev_index);
 			// TODO: move to the previous image, unless at the end in which case show the last image
-		}	
+		}
+		
+		CamaroBefore.addEventListener("click", set_nav_prev);
 	
 		window.addEventListener("load", first_load);
 		
