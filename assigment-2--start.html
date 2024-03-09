@@ -62,6 +62,8 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			set_main_image (0);
 
 			set_thumbnails ();
+
+			update_thumbnails(0);
 			// TODO: set the main image to the first image in the array (index 0)
 			// TODO: set the thumbnail images		
 		}
@@ -106,6 +108,19 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 		} 
 	
 		const update_thumbnails = (current_index) => {
+
+			// if current number in array equals a certain ammount then make the opacity a certain amount
+
+			const OpacityThumb = document.querySelectorAll(".clickable");
+
+			OpacityThumb.forEach((name, index) => {
+
+			(current_index === index) ? name.style.opacity = "1" : name.style.opacity = ".75";
+
+
+			})
+
+		
 			// TODO: you'll need to loop through all thumbnails
 			//		- turn on an indicator (eg opacity:1.0) if it's the selected thumb
 			//		- turn off the indicator (eg opacity:0.75) if it's not
