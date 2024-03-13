@@ -93,6 +93,9 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 		// new_thumb.className = "clickable" means that every element we created has a class name of clickable
 
+		// new_thumb.addEventListener("click", () => { set_main_image(index) means when i click the thumbnail, the corresponding image displays as our main image
+
+			// document.querySelector("#thumbnail-area").append(new_thumb); its adding the new_thumb variable to the element with the ID #thumbnail-area with the querySelector.
 
 	
 		const set_thumbnails = () => {
@@ -112,8 +115,13 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 				document.querySelector("#thumbnail-area").append(new_thumb);
 			});
 
-	
+			// 
+
 		} 
+
+		// the update_thumbnails function will change the opacity of each thumbnail to reflect the currently displayed image. 
+
+		// this is an arrow function updating all the thumbnails
 	
 		const update_thumbnails = (current_index) => {
 
@@ -121,9 +129,13 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 			const OpacityThumb = document.querySelectorAll(".clickable");
 
+			// this arrow function will change the properties of the thumbnail
+			
 			OpacityThumb.forEach((name, index) => {
 
-			(current_index === index) ? name.style.opacity = "1" : name.style.opacity = ".75";
+			// this is checking if the current_index is the same index of the current thumbnail. if it is, it will set the opacity to 1, if not it will set it to .75.
+			
+				(current_index === index) ? name.style.opacity = "1" : name.style.opacity = ".75";
 
 
 			})
@@ -132,7 +144,11 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 	
 		// first button below
 
+		// this is creating a variable that will be assigned to the element first_btn
+
 		const CamaroStart = document.querySelector ("#first-btn");
+		
+		// this function is going to set the main image to be index (0), our first image.
 		
 		const set_nav_first = () => {
 			
@@ -143,6 +159,8 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 		CamaroStart.addEventListener("click", set_nav_first);
 
 		// go to last image button below
+
+		// this is creating a variable that will be assigned to the element last_btn
 
 		const CamaroEnd = document.querySelector ("#last-btn");
 
@@ -161,6 +179,8 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 		// next button below
 
+		// this is creating a variable that will be assigned to the element next_btn
+
 		const CamaroNext = document.querySelector ("#next-btn");
 	
 		const set_nav_next = () => {
@@ -173,9 +193,13 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			
 		}
 
+		// runs the function to move to the next image
+
 		CamaroNext.addEventListener("click", set_nav_next);
 
 		// previous below
+
+		// this is creating a variable that will be assigned to the element prev_btn
 
 		const CamaroBefore = document.querySelector ("#prev-btn");
 		
@@ -189,9 +213,13 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			set_main_image(prev_index);
 
 		}
+
+		// runs function to go back
 		
 		CamaroBefore.addEventListener("click", set_nav_prev);
 	
+		// when page loads it will run first load function and start the magic!
+		
 		window.addEventListener("load", first_load);
 		
 
