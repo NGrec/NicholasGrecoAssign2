@@ -51,9 +51,12 @@
     
 	<script>
 
+// this is my variable for images array.
+// these image names will be combined with either Full.png or Thumb.png so the corresponding images can be displayed on the page.
 		
 const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdropper"];
 		
+// first load is going to run these listed functions upon loading / reloading the window.
 
 		const first_load = () => { 
 
@@ -64,22 +67,33 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			set_thumbnails ();
 
 			update_thumbnails(0);
-			// TODO: set the main image to the first image in the array (index 0)
-			// TODO: set the thumbnail images		
+				
 		}
 	
+		// this function is adding image_names and Full.png to set the image with the according prefix.
+
+		// current_index = index is telling the dom that its using the array
+
+		// update_thumbnail is running the function to change the current thumbnail to the current image
+
 		const set_main_image = (index) => {
 
 			document.querySelector('#main-image').src = "images/" + image_names [index] + "Full.png";
 
 			current_index = index;
-			// TODO: set the main-image src image based on the passed parameter	    
-	
-			// TODO: set the hidden textbox to the current index (if you take this approach)	    
-	
-			// update the thumbnails based on the current selection
+			
 			update_thumbnails(index);
 		}
+
+		// this function is set to create the corresponding thumbnails
+
+		// let new_thumb = document.createElement("img") is creating a new element. It is going to create 6 elements, 1 for each thumbnail.
+
+		// new_thumb.src = images/ + name + "thumb.png" is setting the path to find and grab our thumbnails by searching path and adding Thumb.png
+
+		// new_thumb.className = "clickable" means that every element we created has a class name of clickable
+
+
 	
 		const set_thumbnails = () => {
 
@@ -98,12 +112,6 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 				document.querySelector("#thumbnail-area").append(new_thumb);
 			});
 
-			// TODO: declare a variable for the thumbnail strip html (optional)
-	
-			// TODO: loop through the global array and build the html
-			//       - add an onclick handler to each thumbnail to call set_main_image(index)
-	
-			// TODO: add the html to the divThumbArea
 	
 		} 
 	
@@ -120,10 +128,6 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 
 			})
 
-		
-			// TODO: you'll need to loop through all thumbnails
-			//		- turn on an indicator (eg opacity:1.0) if it's the selected thumb
-			//		- turn off the indicator (eg opacity:0.75) if it's not
 		} 
 	
 		// first button below
@@ -131,7 +135,6 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 		const CamaroStart = document.querySelector ("#first-btn");
 		
 		const set_nav_first = () => {
-			// TODO: navigate to the first image (this is the easy one since it's always index zero)
 			
 			set_main_image (0);
 		}
@@ -150,7 +153,6 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			// last image in array is 5
 			
 			set_main_image (5);
-			// TODO: navigate to the last image (should work for any size array)
 		}
 
 		// runs camaro end function
@@ -168,7 +170,6 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			const next_index = (current_index >= image_names.length - 1) ? 0 : current_index + 1;
 
 			set_main_image(next_index);
-			// TODO: move to the next image, unless at the end in which case show the first image
 			
 		}
 
@@ -186,7 +187,7 @@ const image_names = ["sleeping", "outfront", "culo", "shoes", "lurking", "jawdro
 			const prev_index = (current_index <= 0) ? image_names.length - 1 : current_index -1;
 
 			set_main_image(prev_index);
-			// TODO: move to the previous image, unless at the end in which case show the last image
+
 		}
 		
 		CamaroBefore.addEventListener("click", set_nav_prev);
